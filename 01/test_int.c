@@ -62,6 +62,7 @@ int main(void)
 		}
 
 		printf("当前顺序表元素:");
+		sort(list, comp);
 		traverse(list, show);
 		printf("\n");
 	
