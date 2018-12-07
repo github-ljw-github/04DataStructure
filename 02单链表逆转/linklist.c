@@ -112,7 +112,7 @@ void show(linklist list)
 {
 	for(linklist tmp=list->next; tmp!=NULL; tmp=tmp->next)
 	{
-		printf("%d\t", tmp->data);
+		printf("%d ", tmp->data);
 	}
 	printf("\n");
 }

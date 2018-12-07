@@ -51,10 +51,12 @@ int main(int argc, char **argv)
 		linklist new = new_node(i);
 		list_add_tail(new, list);
 	}
+	printf("原始链表数据: ");
 	show(list);
 
 	// 翻转各个元素
 	reverse(list);
+	printf("逆转后的数据: ");
 	show(list);
 
 	destroy(list);
