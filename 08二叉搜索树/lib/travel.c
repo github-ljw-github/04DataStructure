@@ -19,11 +19,11 @@
 ///////////////////////////////////////////////////////////
 
 
-#include "commonheader.h"
-#include "head4tree.h"
+#include "common.h"
+#include "tree.h"
 
 #define QUEUE_NODE_DATATYPE linktree
-#include "head4queue.h"
+#include "queue.h"
 
 void pre_travel(linktree root, void (*handler)(linktree))
 {

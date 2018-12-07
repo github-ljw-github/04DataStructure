@@ -12,7 +12,7 @@
 //
 ///////////////////////////////////////////////////////////
 
-#include "head4tree.h"
+#include "tree.h"
 #include "drawtree.h"
 
 void putunderline(int fd, int num)

@@ -24,7 +24,7 @@
 #ifndef _HEAD4QUEUE_H__
 #define _HEAD4QUEUE_H__
 
-#include "commonheader.h"
+#include "common.h"
 
 #ifndef QUEUE_NODE_DATATYPE 
 #define QUEUE_NODE_DATATYPE long

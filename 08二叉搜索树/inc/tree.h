@@ -32,7 +32,7 @@
 #define TREE_NODE_DATATYPE long
 #endif
 
-#include "commonheader.h"
+#include "common.h"
 
 #define MAX(a, b) ({ \
 		typeof(a) _a = a; \

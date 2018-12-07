@@ -11,7 +11,7 @@ libdrawtree.so:
 	$(MAKE) -C lib
 
 clean:
-	-@$(RM) bst.elf
+	-@$(RM) bst.elf *.html
 
 distclean:clean
 	$(MAKE) -C lib clean

@@ -8,12 +8,13 @@
 //  技术交流群: 260492823（QQ群）
 //  GitHub链接: https://github.com/vincent040
 //
-//  描述: 二叉搜索树
+//  描述: 基于队列算法，按层遍历二叉搜索树
 //
 ////////////////////////////////////////////////
 
-#include "head4tree.h"
+#include "tree.h"
 #include "drawtree.h"
+#include "queue.h"
 
 linktree bst_insert(linktree root, linktree new)
 {
@@ -118,7 +119,7 @@ int main(void)
 		draw(root);
 		sleep(1);
 	}
-	system("firefox -new-tab *.html &");
+	system("firefox *.html &");
 
 	return 0;
 }

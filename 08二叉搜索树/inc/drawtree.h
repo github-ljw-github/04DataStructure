@@ -15,13 +15,13 @@
 #ifndef _DRAWTREE_H_
 #define _DRAWTREE_H_
 
-#include "commonheader.h"
-#include "head4tree.h"
+#include "common.h"
+#include "tree.h"
 
 #ifndef QUEUE_NODE_DATATYPE
 #define QUEUE_NODE_DATATYPE linktree
 #endif
-#include "head4queue.h"
+#include "queue.h"
 
 static char page_begin[] = "<html><head><title>tree map"
                            "</title></head><body>"
