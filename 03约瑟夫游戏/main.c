@@ -51,11 +51,12 @@ int main(int argc, char **argv)
 		linklist new = new_node(i);
 		list = list_add_tail(new, list);
 	}
+	printf("开  始:");
 	show(list);
 
 	// 开始约瑟夫杀人游戏
 	list = count3(list);
-	printf("幸存者:\n");
+	printf("幸存者:");
 	show(list);
 
 	destroy(list);
