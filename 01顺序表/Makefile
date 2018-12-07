@@ -15,4 +15,4 @@ test_student.elf: test_student.c sequence_list.c
 	gcc $^ -o $@ -DSQLIST_NODE_DATATYPE="struct student"
 
 clean:
-	-@rm $(BIN)
+	-@$(RM) $(BIN)

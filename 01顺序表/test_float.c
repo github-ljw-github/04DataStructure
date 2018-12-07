@@ -15,7 +15,7 @@
 
 void show(float n)
 {
-	printf("%.2f\t", n);
+	printf("%.2f ", n);
 }
 
 bool comp(float f1, float f2)

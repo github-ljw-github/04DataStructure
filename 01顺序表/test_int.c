@@ -15,7 +15,7 @@
 
 void show(int n)
 {
-	printf("%d\t", n);
+	printf("%d ", n);
 }
 
 bool comp(int n1, int n2)
