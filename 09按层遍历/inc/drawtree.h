@@ -18,10 +18,39 @@
 #include "common.h"
 #include "tree.h"
 
+/************** 队列 ****************/
 #ifndef QUEUE_NODE_DATATYPE
 #define QUEUE_NODE_DATATYPE linktree
 #endif
-#include "queue.h"
+
+typedef QUEUE_NODE_DATATYPE qn_datatype;
+
+struct _queue_node
+{
+	qn_datatype data;
+	struct _queue_node *next;
+
+};
+
+typedef struct _queuenode
+{
+	struct _queue_node *front;
+	struct _queue_node *rear;
+#ifdef QUEUE_SIZE
+	int size;
+#endif
+}queuenode, *linkqueue;
+
+bool is_empty_q(linkqueue);
+bool out_queue(linkqueue, qn_datatype *);
+bool en_queue(linkqueue, qn_datatype);
+linkqueue init_queue(void);
+
+#ifdef QUEUE_SIZE
+int queue_size(linkqueue *);
+#endif
+/************** 队列 ****************/
+
 
 static char page_begin[] = "<html><head><title>tree map"
                            "</title></head><body>"
@@ -82,3 +111,4 @@ void end_page(int fd);
 void draw(linktree root);
 
 #endif
+

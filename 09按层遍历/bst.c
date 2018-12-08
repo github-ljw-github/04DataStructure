@@ -12,7 +12,6 @@
 //
 ////////////////////////////////////////////////
 
-#include "tree.h"
 #include "drawtree.h"
 #include "queue.h"
 
@@ -95,31 +94,42 @@ int main(void)
 	linktree root;
 	root = NULL;
 
-	printf("输入大于0的数插入节点\n");
-	printf("输入小于0的数删除节点\n");
-	printf("输入0退出程序\n");
-
+	// 创建一棵包含5随机数的BST
 	int n;
-	while(1)
+	srand(time(NULL));
+	for(int i=0; i<5; i++)
 	{
-		scanf("%d", &n);
+		n = rand() % 100;
+		printf("插入节点:%d\n", n);
 
-		if(n > 0)
-		{
-			linktree new = new_node(n);
-			root = bst_insert(root, new);
-		}
-		else if(n < 0)
-		{
-			root = bst_remove(root, -n);
-		}
-		if(n == 0)
-			break;
-
-		draw(root);
-		sleep(1);
+		linktree new = new_node(n);
+		root = bst_insert(root, new);
 	}
+
+	// 生成网页文件
+	draw(root);
 	system("firefox *.html &");
+
+	// 创建一个空队列
+	queue q = create_queue();
+
+	// 将队头元素入队
+	enqueue(root, q);
+
+	printf("按层遍历:");
+	queue_node *tmp;
+	while(!is_empty(q))
+	{
+		tmp = dequeue(q);
+		if(tmp != NULL)
+		{
+			printf("%ld ", tmp->data->data);
+		}
+
+		if(tmp->data->lchild != NULL) enqueue(tmp->data->lchild, q);
+		if(tmp->data->rchild != NULL) enqueue(tmp->data->rchild, q);
+	}
+	printf("\n");
 
 	return 0;
 }
