@@ -94,15 +94,19 @@ int main(void)
 	linktree root;
 	root = NULL;
 
-	// 创建一棵包含5随机数的BST
 	int n;
-	srand(time(NULL));
-	for(int i=0; i<5; i++)
+	printf("请输入节点个数:");
+	if(scanf("%d", &n) != 1 || n <= 0)
 	{
-		n = rand() % 100;
-		printf("插入节点:%d\n", n);
+		printf("请输入正整数，再见！\n");
+		exit(0);
+	}
 
-		linktree new = new_node(n);
+	// 创建一棵包含若干随机数的BST
+	srand(time(NULL));
+	for(int i=0; i<n; i++)
+	{
+		linktree new = new_node(rand() % 100);
 		root = bst_insert(root, new);
 	}
 

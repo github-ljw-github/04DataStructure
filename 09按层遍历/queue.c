@@ -36,17 +36,8 @@ void enqueue(linktree data, queue q)
 		INIT_LIST_HEAD(&new->list);
 	}
 
-	// 2，将新节点入队
-	if(is_empty(q))
-	{
-		q->head = new;
-	}
-	else
-	{
-		// 将新节点接入链表的末尾
-		list_add_tail(&new->list, &q->head->list);
-	}
-
+	// 2，将新节点接入链表的末尾
+	list_add_tail(&new->list, &q->head->list);
 	q->size++;
 }
 
@@ -62,6 +53,7 @@ queue_node *dequeue(queue q)
 	list_del(pos);
 	q->size--;
 
-	return list_entry(pos, queue_node, list);
+	queue_node *p = list_entry(pos, queue_node, list);
+	return p;
 
 }
