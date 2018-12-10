@@ -33,14 +33,13 @@ char *random_string(void)
 {
 	char *s = calloc(1, 19);
 
-	srand(time(NULL));
-	int len = rand()%19;
 	char ch[] = {'a', 'A'};
-	for(int i=0; i<len; i++)
+	for(int i=0; i<5; i++)
 	{
 		s[i] = ch[rand()%2]+rand()%26;
 	}
 
+	printf("随机字符串: %s\n", s);
 	return s;
 }
 
@@ -112,6 +111,7 @@ hash_table init_hash(int cap)
 		}
 		ht->capacity = cap;
 		ht->primery  = primery(cap); // 不超过容量的最大素数
+		printf("primry: %d\n", ht->primery);
 	}
 	return ht;
 }
@@ -128,6 +128,8 @@ void hash_add(char *s, hash_table ht)
 
 	// 1，使用除留余数法，获得哈希地址
 	int haddr = sumup(s) % ht->primery;
+	printf("sumup: %d\n", sumup(s));
+	printf("haddr: %d\n", haddr);
 
 	if(ht->table[haddr] == NULL)
 	{
@@ -168,20 +170,23 @@ void show(hash_table ht)
 		{
 			printf("--> \"%s\" ", tmp->data);
 		}
-		printf("--> NULL\n");
+		printf("\n");
 	}
+	printf("=========================\n\n");
 }
 
 int main(int argc, char **argv)
 {
 	// 创建一个容量不超过100的空哈希表
-	hash_table ht = init_hash(100);
+	hash_table ht = init_hash(30);
 
 
 	// 1，造表: 将若干随机字符串置入哈希表
-	for(int i=0; i<100; i++)
+	srand(time(NULL));
+	for(int i=0; i<30; i++)
 	{
 		hash_add(random_string(), ht);
+		usleep(300*1000);
 		show(ht);
 	}
 
@@ -189,18 +194,19 @@ int main(int argc, char **argv)
 	// 2，查表: 按要求查到（或查不到）所需字符串的位置
 	while(1)
 	{
-		printf("请输入你想要查询的字符串:");
+		printf("你想要查询的字符串:");
 		char s[20];
+		bzero(s, 20);
 		fgets(s, 20, stdin);
 
-		int pos = hash_search(s, ht);
+		int pos = hash_search(strtok(s, "\n"), ht);
 		if(pos == -1)
 		{
-			printf("找不到你所需要的字符串，请重新输入.\n");
+			printf("无此字符串，请重新输入.\n");
 			continue;
 		}
 
-		printf("你要找到的字符串的位置是【%d】\n", pos);
+		printf("位置是【%d】\n", pos);
 	}
 
 	return 0;
