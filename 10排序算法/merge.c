@@ -190,7 +190,7 @@ int main(int argc, char **argv)
 	bool done = false;
 	char file[20];
 	int N = 0;
-	int wanted = 100*1000; // 假设每次只能读取10万个数据
+	int wanted = 1000*1000; // 假设每次只能读取10万个数据
 	int infact = wanted;
 	while(1)
 	{
